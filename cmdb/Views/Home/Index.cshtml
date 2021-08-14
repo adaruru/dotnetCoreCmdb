@@ -1,0 +1,52 @@
+﻿@model IEnumerable<cmdb.Models.User>
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+ <h1 class="display-4">Welcome</h1>
+
+ <table class="table">
+  <thead>
+   <tr>
+	<th>
+					@Html.DisplayNameFor(model => model.UserId)
+	</th>
+	<th>
+					@Html.DisplayNameFor(model => model.UserName)
+	</th>
+	<th>
+					@Html.DisplayNameFor(model => model.IsActive)
+	</th>
+	<th>
+					@Html.DisplayNameFor(model => model.IsVarify)
+	</th>
+	<th></th>
+   </tr>
+  </thead>
+  <tbody>
+			@foreach (var item in Model)
+			{
+	   <tr>
+		<td>
+						@Html.DisplayFor(modelItem => item.UserId)
+		</td>
+		<td>
+						@Html.DisplayFor(modelItem => item.UserName)
+		</td>
+		<td>
+						@Html.DisplayFor(modelItem => item.IsActive)
+		</td>
+		<td>
+						@Html.DisplayFor(modelItem => item.IsVarify)
+		</td>
+		<td>
+		 <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+		 <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
+		 <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+		</td>
+	   </tr>
+			}
+  </tbody>
+ </table>
+</div>
