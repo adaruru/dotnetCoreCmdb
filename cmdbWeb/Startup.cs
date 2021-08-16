@@ -26,7 +26,7 @@ namespace cmdbWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<CmdbContext>(option => option.UseMySql("server=localhost;user=root;password=ruru;database=cmdb", ServerVersion.Parse("8.0.22-mysql")));
+            services.AddDbContext<CmdbContext>(option => option.UseMySql("server=localhost;user=root;password=ruru;database=cmdb", ServerVersion.Parse("8.0.22-mysql")), ServiceLifetime.Transient);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
